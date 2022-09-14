@@ -15,23 +15,23 @@ package task3;
 public class HomeWork3 {
     public static void main(String[] args) {
         System.out.println(fuzzySearch("car", "ca6$$#_rtwheel"));
-        System.out.println(fuzzySearch("cwhl", "cartwheel"));
-        System.out.println(fuzzySearch("cwhee", "cartwheel"));
-        System.out.println(fuzzySearch("cartwheel", "cartwheel"));
-        System.out.println(fuzzySearch("cwheeel", "cartwheel"));
-        System.out.println(fuzzySearch("lw", "cartwheel"));
+//        System.out.println(fuzzySearch("cwhl", "cartwheel"));
+//        System.out.println(fuzzySearch("cwhee", "cartwheel"));
+//        System.out.println(fuzzySearch("cartwheel", "cartwheel"));
+//        System.out.println(fuzzySearch("cwheeel", "cartwheel"));
+//        System.out.println(fuzzySearch("lw", "cartwheel"));
     }
 
-    public static boolean fuzzySearch(String longWord, String shotWord) {
-        if (longWord == null || shotWord == null) {
+    public static boolean fuzzySearch(String shortWord, String longWord) {
+        if (shortWord == null || longWord == null) {
             return false;
         }
         int i = 0;
+        String[] shortStr = shortWord.split("");
         String[] longStr = longWord.split("");
-        String[] shotStr = shotWord.split("");
-        for (String sh : shotStr) {
-            if (sh.equals(longStr[i])) i++;
-            if (i == longStr.length) return true;
+        for (String s : longStr) {
+            if (s.equals(shortStr[i])) i++;
+            if (i == shortStr.length) return true;
         }
         return false;
     }
