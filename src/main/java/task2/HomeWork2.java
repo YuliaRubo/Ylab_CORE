@@ -14,17 +14,15 @@ public class HomeWork2 {
 
         System.out.println(getSortNumber(Arrays.asList(3, 4, 2, 7), 10));
 
-
-
     }
 
-        public static List<Integer> getSortNumber(List<Integer> miList, int sumNumber) {
+        public static List<Integer> getSortNumber(List<Integer> myList, int sumNumber) {
 
-        if (miList == null) {
+        if (myList == null) {
             return new ArrayList<>();
         }
         Set<Integer> s = new HashSet<>();
-        for (Integer in : miList) {
+        for (Integer in : myList) {
             int findNumber = sumNumber - in;
             if (s.contains(findNumber)) {
                 return Arrays.asList(findNumber, in);
