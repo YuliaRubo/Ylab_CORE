@@ -68,17 +68,17 @@ import java.util.stream.Collectors;
             System.out.println("Duplicate filtered, grouped by name, sorted by name and id:");
             System.out.println();
 
-           Integer in =  RAW_DATA.length;
+            Integer in = RAW_DATA.length;
 
 
-            Map<String, Long> map = Arrays.stream(RAW_DATA)
+            Map<String, Long> mapSort = Arrays.stream(RAW_DATA)
                     .filter(Objects::nonNull)
                     .distinct()
-                    .sorted(Comparator.comparing(o -> o.name))
-                    .collect(Collectors.groupingBy(Person::getName,LinkedHashMap::new, Collectors.counting()));
-            map.forEach((k,v)->System.out.println("Key: " + k +  "\n" + "Value:" + v));
+                    .sorted(Comparator.comparing(obj -> obj.name))
+                    .sorted(Comparator.comparing(obj -> obj.id))
+                    .collect(Collectors.groupingBy(Person::getName, Collectors.counting()));
+            mapSort.forEach((k, v) -> System.out.println("Key: " + k + "\n" + "Value:"+ " " + v));
 
-            }
         /*
         Task1
             Убрать дубликаты, отсортировать по идентификатору, сгруппировать по имени
@@ -94,6 +94,7 @@ import java.util.stream.Collectors;
          */
 
         }
+    }
 
 
 
